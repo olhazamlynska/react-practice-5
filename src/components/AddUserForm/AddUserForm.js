@@ -1,4 +1,8 @@
+import { useDispatch } from 'react-redux';
+import { addUser } from 'redux/users/usersOperations';
+
 export const AddUserForm = ({ closeForm }) => {
+  const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -7,7 +11,7 @@ export const AddUserForm = ({ closeForm }) => {
       email: e.target.elements.email.value,
     };
 
-    console.log(newUser);
+    dispatch(addUser(newUser));
 
     closeForm();
   };
